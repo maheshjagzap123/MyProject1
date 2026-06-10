@@ -1,0 +1,116 @@
+.success-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--off-white);
+  padding: 80px 28px;
+}
+
+.success-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 56px 48px;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border-top: 4px solid var(--gold);
+}
+
+.success-card__icon {
+  width: 72px;
+  height: 72px;
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.success-card h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.success-card__sub {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.success-card__steps {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.success-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-right: 1px solid var(--border);
+  min-width: 110px;
+}
+.success-step:last-child { border-right: none; }
+
+.success-step__circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--off-white);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gray);
+}
+.success-step--done .success-step__circle {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+}
+
+.success-step span {
+  font-size: 0.72rem;
+  color: var(--gray);
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.success-card__note {
+  background: var(--off-white);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.success-card__note a { color: var(--gold); font-weight: 600; }
+
+.success-card__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .success-card { padding: 36px 24px; }
+  .success-card__steps { gap: 16px; }
+  .success-step { border-right: none; }
+}

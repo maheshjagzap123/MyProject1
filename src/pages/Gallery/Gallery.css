@@ -1,0 +1,174 @@
+.gallery-banner {
+  background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80') !important;
+}
+
+/* Winners */
+.winners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.winner-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: box-shadow 0.3s, transform 0.3s;
+  background: var(--white);
+}
+.winner-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+
+.winner-card__img-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+.winner-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(15%);
+  transition: transform 0.4s, filter 0.4s;
+}
+.winner-card:hover .winner-card__img-wrap img {
+  transform: scale(1.06);
+  filter: grayscale(0);
+}
+.winner-card__crown {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 1.8rem;
+  color: var(--gold);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+
+.winner-card__body {
+  padding: 18px 16px;
+  text-align: center;
+}
+.winner-card__body h3 { font-size: 1.15rem; color: var(--dark); margin-bottom: 4px; }
+.winner-card__title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.winner-card__city { font-size: 0.78rem; color: var(--gray); }
+
+/* Photo gallery */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 12px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-item--wide {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s, filter 0.4s;
+  filter: grayscale(10%);
+}
+.gallery-item:hover img { transform: scale(1.07); filter: grayscale(0); }
+
+.gallery-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 14px 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover .gallery-item__overlay { opacity: 1; }
+.gallery-item__overlay span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.gallery-item__zoom {
+  width: 30px;
+  height: 30px;
+  background: rgba(201,168,76,0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.lightbox img {
+  max-height: 80vh;
+  max-width: 90vw;
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+.lightbox p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  margin-top: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.lightbox__close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lightbox__close:hover { background: rgba(255,255,255,0.2); }
+
+@media (max-width: 900px) {
+  .winners-grid { grid-template-columns: repeat(2, 1fr); }
+  .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item--wide { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .winners-grid { grid-template-columns: 1fr 1fr; }
+  .photo-gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+}

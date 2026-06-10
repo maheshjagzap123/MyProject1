@@ -1,0 +1,61 @@
+.become-banner {
+  background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1400&q=80') !important;
+  background-size: cover !important; background-position: center !important;
+}
+.become-banner::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.65); z-index:0; }
+.become-banner * { position:relative; z-index:1; }
+
+.become-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.become-step {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.become-step:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.become-step--active { background: var(--dark); border-color: var(--gold); }
+.become-step--active h3, .become-step--active p { color: rgba(255,255,255,0.8) !important; }
+.become-step__num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+.become-step--active .become-step__num { opacity: 0.9; }
+.become-step h3 { font-size: 0.95rem; margin-bottom: 8px; font-family:'Inter',sans-serif; font-weight:600; }
+.become-step p { font-size: 0.8rem; color: var(--gray); line-height:1.6; }
+
+.become-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.become-requirements {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 8px;
+}
+.become-req-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+.become-req-row:last-child { border-bottom: none; }
+.become-req-label { color: var(--gray); }
+.become-req-val { font-weight: 600; color: var(--dark); }
+
+@media (max-width: 1000px) { .become-steps { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 860px)  { .become-body { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 600px)  { .become-steps { grid-template-columns: 1fr 1fr; } }

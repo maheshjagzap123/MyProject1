@@ -1,0 +1,66 @@
+.hire-banner {
+  background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80') !important;
+  background-size: cover !important; background-position: center !important;
+}
+.hire-banner::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.68); z-index:0; }
+.hire-banner * { position:relative; z-index:1; }
+
+.hire-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.hire-category-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 22px;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+}
+.hire-category-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+.hire-category-card__icon { font-size: 2rem; margin-bottom: 12px; }
+.hire-category-card h3 { font-family:'Inter',sans-serif; font-size:1rem; font-weight:600; margin-bottom:8px; }
+.hire-category-card p { font-size:0.85rem; color:var(--gray); line-height:1.65; }
+
+.hire-body {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.hire-process {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.hire-process-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hire-process-step__num {
+  width: 32px;
+  height: 32px;
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.hire-process-step span { font-size: 0.8rem; font-weight: 600; color: var(--dark); }
+.hire-process-step__arrow { color: var(--gold); font-size: 1rem; margin-left: 4px; }
+
+@media (max-width: 900px) { .hire-categories { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 860px) { .hire-body { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 580px) { .hire-categories { grid-template-columns: 1fr; } }
